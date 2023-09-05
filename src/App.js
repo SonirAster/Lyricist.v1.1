@@ -19,6 +19,7 @@ class App extends React.Component{
         })
         // data =  '1';
         // console.log(data);
+        //version11
     }
     render() {
         return (
