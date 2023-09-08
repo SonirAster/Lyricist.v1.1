@@ -1,0 +1,13 @@
+.header {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+    background-image: url('./Header.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100px;
+}
