@@ -1,6 +1,7 @@
 import axios from 'axios';
 import styles from './App.css';
 import React from 'react';
+import Header from './components/Header/Header';
 
 class App extends React.Component{
     state = { details: [], }
@@ -23,6 +24,7 @@ class App extends React.Component{
     render() {
         return (
             <div>
+                <Header />
                 <span>New Test App</span>
                 {this.state.details.map((output, id) => (
                     <div key={id}>
