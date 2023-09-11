@@ -6,8 +6,7 @@
     font-size: 20px;
     font-weight: 500;
     color: #fff;
-    background-image: url('./Header.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: transparent;
     min-height: 100px;
+    border-bottom: 4px solid #000;
 }
