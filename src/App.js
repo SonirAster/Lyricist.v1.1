@@ -2,6 +2,8 @@ import axios from 'axios';
 import styles from './App.css';
 import React from 'react';
 import Header from './components/Header/Header';
+import PageContent from './components/PageContent/PageContent';
+
 
 class App extends React.Component{
     state = { details: [], }
@@ -25,7 +27,7 @@ class App extends React.Component{
         return (
             <div>
                 <Header />
-                <span>New Test App</span>
+                <PageContent />
                 {this.state.details.map((output, id) => (
                     <div key={id}>
                         <h2 className={styles.dd}>{output.title}</h2>

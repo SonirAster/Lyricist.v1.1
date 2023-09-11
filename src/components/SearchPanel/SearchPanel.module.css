@@ -1,0 +1,17 @@
+.search_panel {
+    font-size: 18px;
+    font-weight: 400;
+    display: flex;
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.search_group {
+    flex: 1 1 50%;
+}
+
+.search_song {
+    flex: 1 1 50%;
+}
+
+
