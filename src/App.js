@@ -4,7 +4,6 @@ import React from 'react';
 import Header from './components/Header/Header';
 import PageContent from './components/PageContent/PageContent';
 
-
 class App extends React.Component{
     state = { details: [], }
 
@@ -25,7 +24,7 @@ class App extends React.Component{
     }
     render() {
         return (
-            <div>
+            <div className='app-wrapper'>
                 <Header />
                 <PageContent />
                 {this.state.details.map((output, id) => (

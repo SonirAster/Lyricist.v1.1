@@ -1,8 +1,16 @@
 .app-wrapper {
     margin: 0 auto;
-    /* background-color: rgba(43, 43, 58, 0.7); */
     background-image: url('./background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
 }
+
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: inherit;
+}
+
+
