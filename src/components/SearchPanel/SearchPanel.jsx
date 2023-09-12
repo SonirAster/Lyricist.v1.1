@@ -1,17 +1,19 @@
 import React from 'react';
 import s from './SearchPanel.module.css';
 import { NavLink } from 'react-router-dom';
-import panel from './panel.jpg';
+import panel1 from './search1.jpg';
+import panel2 from './search2.jpg';
 
 const SearchPanel = () => {
     return (
         <div className={s.search_panel}>
             <div className={s.search_group}>
-                <div className={s.search_group__image}><img src={panel}/></div>
+                <div className={s.search_group__image}><img src={panel1}/></div>
                 <NavLink to="/search-for-group" className={s.search_group__title}>Seek for Group</NavLink>
             </div>
             <div className={s.search_song}>
-                <NavLink to="/search-for-song">Seek for Song</NavLink>
+                <div className={s.search_song__image}><img src={panel2}/></div>
+                <NavLink to="/search-for-song" className={s.search_song__title}>Seek for Song</NavLink>
             </div>
         </div>
     )
