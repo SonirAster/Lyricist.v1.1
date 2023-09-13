@@ -40,8 +40,14 @@
       "last 1 safari version"
     ]
   },
+<<<<<<< HEAD
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "author": "",
   "license": "ISC"
+=======
+  "devDependencies": {
+    "file-loader": "^6.2.0"
+  }
+>>>>>>> 44f95d9433ee1a8ee55999bfe501d5affe6e9191
 }
