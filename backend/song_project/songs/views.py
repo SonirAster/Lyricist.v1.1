@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta
+
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 
@@ -9,11 +11,13 @@ from rest_framework.viewsets import GenericViewSet
 
 from .models import *
 from .serializers import GroupSerializer
+from .service import GroupFilter
 
 
 class GroupViewSet(GenericViewSet,
                    mixins.ListModelMixin):
     filter_backends = (DjangoFilterBackend,)
+    filterset_class = GroupFilter
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
 
