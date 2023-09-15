@@ -24,6 +24,8 @@ class Group(models.Model):
     genre = models.ManyToManyField(Genre)
     image = models.ImageField(upload_to='media/')
     slug = models.SlugField(unique=True)
+    time_create = models.DateTimeField(auto_now_add=True)
+    time_update = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name

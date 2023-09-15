@@ -16,9 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
+
+from songs.views import *
+
+router = routers.DefaultRouter()
+router.register(r'group', GroupViewSet, basename='group')
+print(router.urls)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('songs.urls'))
-
+    path('admin/', admin.site.urls,),
+    path('', include(router.urls)),
 ]

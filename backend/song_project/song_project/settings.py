@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'songs.apps.SongsConfig',
     'corsheaders',
-    'rest_framework'
+    'rest_framework',
+    'django_filters',
+
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -55,6 +57,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKEND': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ),
+}
 
 ROOT_URLCONF = 'song_project.urls'
 
@@ -128,3 +136,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+

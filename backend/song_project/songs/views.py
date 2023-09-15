@@ -1,18 +1,24 @@
-from django.http import HttpResponse, JsonResponse
-from django.shortcuts import render
+from datetime import datetime, timedelta
+from django.utils import timezone
 
 # Create your views here.
 from django.views.decorators.csrf import csrf_exempt
-from rest_framework.parsers import JSONParser
+from rest_framework import viewsets, mixins
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.viewsets import GenericViewSet
 
 from .models import *
 from .serializers import GroupSerializer
+from .service import GroupFilter
 
 
-@csrf_exempt
-def groupAPI(request):
-    if request.method == 'GET':
-        groups = Group.objects.all()
-        groups_serializer = GroupSerializer(groups, many=True)
-        return JsonResponse(groups_serializer.data, safe=False)
+class GroupViewSet(GenericViewSet,
+                   mixins.ListModelMixin):
+    filter_backends = (DjangoFilterBackend,)
+    filterset_class = GroupFilter
+    queryset = Group.objects.filter(time_create__gte=datetime.now(tz=timezone.utc)-timedelta(days=20))
+    serializer_class = GroupSerializer
+
+
+
 
