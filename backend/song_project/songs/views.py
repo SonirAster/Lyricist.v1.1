@@ -1,7 +1,5 @@
 from datetime import datetime, timedelta
-
-from django.http import HttpResponse, JsonResponse
-from django.shortcuts import render
+from django.utils import timezone
 
 # Create your views here.
 from django.views.decorators.csrf import csrf_exempt
@@ -18,7 +16,7 @@ class GroupViewSet(GenericViewSet,
                    mixins.ListModelMixin):
     filter_backends = (DjangoFilterBackend,)
     filterset_class = GroupFilter
-    queryset = Group.objects.all()
+    queryset = Group.objects.filter(time_create__gte=datetime.now(tz=timezone.utc)-timedelta(days=20))
     serializer_class = GroupSerializer
 
 
