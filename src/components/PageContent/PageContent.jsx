@@ -1,8 +1,8 @@
 import React from 'react';
 import s from './PageContent.module.css';
 import { Routes, Route } from 'react-router-dom';
-import SearchSong from '../SearchPanel/SearchSong';
-import SearchGroup from '../SearchPanel/SearchGroup';
+import SearchSong from '../SearchPanel/SearchSong/SearchSong';
+import SearchGroup from '../SearchPanel/SearchGroup/SearchGroup';
 import SearchPanel from '../SearchPanel/SearchPanel';
 
 const PageContent = () => {

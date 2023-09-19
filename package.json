@@ -1,5 +1,5 @@
 {
-  "name": "react-proj-1",
+  "name": "Lyricist.v1.0",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -40,21 +40,7 @@
       "last 1 safari version"
     ]
   },
-<<<<<<< HEAD
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
-  "author": "",
-<<<<<<< HEAD
-  "license": "ISC"
-=======
-  "devDependencies": {
-    "file-loader": "^6.2.0"
-  }
->>>>>>> 44f95d9433ee1a8ee55999bfe501d5affe6e9191
-=======
-  "license": "ISC",
-  "devDependencies": {
-    "@svgr/webpack": "^8.1.0"
-  }
->>>>>>> new-api
+  "author": ""
 }
