@@ -22,7 +22,7 @@ class Group(models.Model):
     language = models.ForeignKey(Language, on_delete=models.PROTECT, null=True)
     year = models.SmallIntegerField(default=None)
     genre = models.ManyToManyField(Genre)
-    image = models.ImageField(upload_to='media/')
+    image = models.ImageField(upload_to='groups/')
     slug = models.SlugField(unique=True)
     time_create = models.DateTimeField(auto_now_add=True)
     time_update = models.DateTimeField(auto_now=True)
@@ -33,8 +33,8 @@ class Group(models.Model):
 
 class Album(models.Model):
     title = models.CharField(max_length=100)
-    years = models.SmallIntegerField()
-    image = models.ImageField(upload_to='media/')
+    year = models.SmallIntegerField()
+    image = models.ImageField(upload_to='albums/')
     group = models.ForeignKey(Group, on_delete=models.PROTECT, null=True)
 
     def __str__(self):
@@ -44,7 +44,7 @@ class Album(models.Model):
 class Song(models.Model):
     title = models.CharField(max_length=100)
     text = models.TextField()
-    years = models.CharField(max_length=100)
+    year = models.CharField(max_length=100)
     time_create = models.DateTimeField(auto_now_add=True)
     time_update = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=True)
