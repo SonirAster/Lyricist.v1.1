@@ -3,6 +3,13 @@ from django.db import models
 # Create your models here.
 
 
+class Character(models.Model):
+    char = models.CharField(max_length=1)
+
+    def __str__(self):
+        return self.char
+
+
 class Language(models.Model):
     lang = models.CharField(max_length=55)
 
@@ -19,13 +26,15 @@ class Genre(models.Model):
 
 class Group(models.Model):
     name = models.CharField(max_length=255)
-    language = models.ForeignKey(Language, on_delete=models.PROTECT, null=True)
-    year = models.SmallIntegerField(default=None)
+    description = models.TextField()
     genre = models.ManyToManyField(Genre)
     image = models.ImageField(upload_to='groups/')
-    slug = models.SlugField(unique=True)
+    year = models.SmallIntegerField(default=None)
     time_create = models.DateTimeField(auto_now_add=True)
     time_update = models.DateTimeField(auto_now=True)
+    slug = models.SlugField(unique=True)
+    language = models.ManyToManyField(Language,)
+    character = models.ForeignKey(Character, on_delete=models.PROTECT, null=True)
 
     def __str__(self):
         return self.name
@@ -50,6 +59,8 @@ class Song(models.Model):
     is_published = models.BooleanField(default=True)
     album = models.ForeignKey(Album, on_delete=models.PROTECT, null=True)
     group = models.ForeignKey(Group, on_delete=models.PROTECT, null=True)
+    character = models.ForeignKey(Character, on_delete=models.PROTECT, null=True)
+    language = models.ManyToManyField(Language,)
     slug = models.SlugField(unique=True)
 
 

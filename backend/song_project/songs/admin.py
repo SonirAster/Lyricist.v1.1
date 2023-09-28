@@ -5,6 +5,11 @@ from .models import *
 # Register your models here.
 
 
+@admin.register(Character)
+class CharacterAdmin(admin.ModelAdmin):
+    list_display = ('char',)
+
+
 @admin.register(Language)
 class LanguageAdmin(admin.ModelAdmin):
     list_display = ('lang',)
@@ -17,18 +22,18 @@ class Genre(admin.ModelAdmin):
 
 @admin.register(Group)
 class GroupAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'year', 'language', 'get_image', 'time_create', 'time_update', )
+    list_display = ('id', 'name', 'year', 'get_image', 'time_create', 'time_update', )
     list_display_links = ('name', 'id',)
-    readonly_fields = ('time_create', 'time_update', 'language', 'get_image',)
+    readonly_fields = ('time_create', 'time_update', 'get_image',)
     search_fields = ('name', 'year', 'language__lang',)
-    list_filter = ('year', 'language__lang',)
+    list_filter = ('year',)
     prepopulated_fields = {"slug": ("name",)}
     fieldsets = (
         (None, {
-            'fields': (('name', 'slug',),)
+            'fields': (('name', 'slug', 'description',),)
         }),
         (None, {
-            'fields': (('genre', 'language',),)
+            'fields': (('genre', 'language', 'character',),)
         }),
         (None, {
             'fields': (('year', 'time_create', 'time_update'),)
@@ -48,8 +53,8 @@ class GroupAdmin(admin.ModelAdmin):
 class AlbumAdmin(admin.ModelAdmin):
     list_display = ('title', 'year', 'get_image', 'group',)
     list_display_links = ('title', 'group')
-    search_fields = ('title', 'year',)
     readonly_fields = ('get_image',)
+    search_fields = ('title', 'year',)
 
     def get_image(self, obj):
         return mark_safe(f"<img src={obj.image.url} height='100'")
@@ -60,14 +65,15 @@ class AlbumAdmin(admin.ModelAdmin):
 @admin.register(Song)
 class SongAdmin(admin.ModelAdmin):
     list_display = (
-        'title',
+        'id', 'title',
         'year', 'group', 'album',
         'time_create', 'time_update', 'is_published',
     )
-    prepopulated_fields = {"slug": ("title",)}
-    search_fields = ('title', 'year', 'group__name', 'album__title')
-    list_editable = ('is_published',)
     readonly_fields = ('time_create', 'time_update',)
+    search_fields = ('title', 'year', 'group__name', 'album__title')
+    list_filter = ('year', )
+    list_editable = ('is_published',)
+    prepopulated_fields = {"slug": ("title",)}
     fieldsets = (
         (None, {
             'fields': (('title', 'slug'),)
