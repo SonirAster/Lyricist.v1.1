@@ -20,6 +20,7 @@ body {
     font-family: Cardo;
     font-size: 22px;
     font-weight: 400;
+    overflow-x: hidden;
 }
 
 a {
@@ -32,3 +33,7 @@ a:hover {
     transition: color 0.2s ease-in-out; 
 }
 
+img {
+    user-select: none;
+    pointer-events: none;
+}
