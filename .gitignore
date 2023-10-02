@@ -2,6 +2,7 @@
 
 # dependencies
 /backend/pyvenv.cfg
+/backend/.idea
 /node_modules
 /.pnp
 .pnp.js
@@ -22,5 +23,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-/.idea
