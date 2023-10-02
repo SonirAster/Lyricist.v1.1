@@ -4,11 +4,8 @@ import s from './Footer.module.css';
 const Footer = () => {
     return (
         <footer className={s.footer}>
+            <div className={s.illuminator}></div>
             <p>Footer is currently empty. Sorry. -^-</p> 
-            <span>
-            <div className={s.font_one}>font 1</div>
-            <div className={s.font_two}>font 2</div>
-            </span>
         </footer>
     )
 }

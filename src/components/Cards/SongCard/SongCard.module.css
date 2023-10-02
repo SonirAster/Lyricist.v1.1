@@ -1,0 +1,111 @@
+.card {
+    padding: 20px 25px;
+    border-radius: 15px;
+    min-height: 150px;
+    min-width: 180px;
+    max-height: 250px;
+    max-width: 200px;
+    border: 2px #fff solid;
+    position: relative;
+    width: 100%;
+    height: 100%; 
+    margin-bottom: 100px;
+}
+
+.card_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    font-size: 20px;
+    line-height: 1.45;
+    position: absolute;
+}
+
+.card__image {
+    border-radius: 15px;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+}
+
+.card span {
+    font-style: italic;
+}
+
+.card__group,
+.card__album {
+    margin-top: 20px;
+}
+
+.card__group {
+    margin-bottom: 30px;
+}
+
+.card__group_title {
+    position: relative; 
+}
+
+.card__group_title a {
+    position: absolute; 
+}
+
+.card__when {
+    font-size: 18px;
+    position: absolute;
+    bottom: 1px;
+    left: 7px;
+    z-index: 0;
+}
+
+.card__group_desc {
+    display: none;     
+    position: absolute;
+    left: -50px;
+    bottom: 0px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px #fff solid;
+    min-width: 150px;
+    min-height: 135px;  
+    z-index: 1;
+}
+
+.card__group_desc__group_image {
+    display: flex;
+    z-index: 1;
+    position: absolute;
+    top: -10px;
+    right: -100px;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    max-width: 90px;
+    max-height: 90px;
+    border: 2px #fff solid;
+    border-radius: 50%;
+}
+
+.card__desc_text {
+    position: absolute;
+    z-index: 1;
+}
+
+.card__group_cover {
+    border-radius: 10px;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+}
+
+.card__group_title:hover .card__group_desc {
+    display: block;
+} 

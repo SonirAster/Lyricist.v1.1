@@ -1,6 +1,20 @@
 .main_page {
-    padding: 30px 150px;
-    text-align: center;
-    font-weight: 600;
-    color: #a818af;
+    padding: 20px 50px 50px 30px;
+} 
+
+.main_page__wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 200px);
+    grid-gap: 30px 90px;
+    justify-items: center;
+    justify-content: center;
 }
+
+.main_page__title {
+    display: block;
+    margin-bottom: 30px;
+    text-align: center;
+    border-bottom: 2px #fff solid;
+    padding-bottom: 20px;
+}
+

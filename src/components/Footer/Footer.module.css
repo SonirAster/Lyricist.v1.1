@@ -7,22 +7,16 @@
     min-width: 100%;
     background-color: transparent;
     border-top: 2px #fff solid;
-    position: fixed;
-    bottom: 0;
+    padding: 0 50px;
 }
 
-p {
-    flex: 1 1 50%;
+.illuminator {
+    width: 40px;
+    height: 40px;
+    border: 7px solid rgb(71, 71, 71);
+    border-radius: 50%;
+    background-color: #1c1936;
+    margin-right: 20px;
 }
 
-span {
-    flex: 1 1 50%;
-}
 
-.font_one {
-    
-}
-
-.font_two {
-    font-style: italic;
-}

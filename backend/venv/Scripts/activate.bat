@@ -1,6 +1,6 @@
 @echo off
 
-set "VIRTUAL_ENV=C:\Users\Asus\PycharmProjects\django\Lyricist.v1.0\backend\venv"
+set "VIRTUAL_ENV=C:\Users\Asus\PycharmProjects\django\Lyricist.v1.1\backend\venv"
 
 if defined _OLD_VIRTUAL_PROMPT (
     set "PROMPT=%_OLD_VIRTUAL_PROMPT%"
