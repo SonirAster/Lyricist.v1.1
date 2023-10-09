@@ -33,7 +33,7 @@ class GroupAdmin(admin.ModelAdmin):
             'fields': (('name', 'slug', 'description',),)
         }),
         (None, {
-            'fields': (( 'language', 'genre', 'character'),)
+            'fields': (('genre', 'language', 'character',),)
         }),
         (None, {
             'fields': (('year', 'time_create', 'time_update'),)
@@ -65,12 +65,12 @@ class AlbumAdmin(admin.ModelAdmin):
 class SongAdmin(admin.ModelAdmin):
     list_display = (
         'id', 'title',
-        'group', 'album',
+        'year', 'group', 'album',
         'time_create', 'time_update', 'is_published',
     )
-    list_display_links = ('title',)
     readonly_fields = ('time_create', 'time_update',)
-    search_fields = ('title', 'group__name', 'album__title',)
+    search_fields = ('title', 'year', 'group__name', 'album__title')
+    list_filter = ('year', )
     list_editable = ('is_published',)
     prepopulated_fields = {"slug": ("title",)}
     fieldsets = (
@@ -81,7 +81,7 @@ class SongAdmin(admin.ModelAdmin):
             'fields': (('group', 'album'),)
         }),
         (None, {
-            'fields': (( 'is_published', 'character',),)
+            'fields': (('year', 'is_published',),)
         }),
         (None, {
             'fields': (('time_create', 'time_update'),)

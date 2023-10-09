@@ -9,3 +9,6 @@
     min-height: 100px;
 }
 
+.header_title {
+    text-decoration: underline;
+}
