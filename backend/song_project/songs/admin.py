@@ -67,6 +67,7 @@ class SongAdmin(admin.ModelAdmin):
         'id', 'title',
         'group', 'album',
         'time_create', 'time_update', 'is_published',
+
     )
     list_display_links = ('title',)
     readonly_fields = ('time_create', 'time_update',)
