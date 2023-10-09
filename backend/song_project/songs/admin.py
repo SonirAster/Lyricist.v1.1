@@ -67,6 +67,7 @@ class SongAdmin(admin.ModelAdmin):
         'id', 'title',
         'year', 'group', 'album',
         'time_create', 'time_update', 'is_published',
+
     )
     readonly_fields = ('time_create', 'time_update',)
     search_fields = ('title', 'year', 'group__name', 'album__title')
