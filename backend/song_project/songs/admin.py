@@ -61,8 +61,6 @@ class AlbumAdmin(admin.ModelAdmin):
 
     get_image.short_description = "Image"
 
-
-
 @admin.register(Song)
 class SongAdmin(admin.ModelAdmin):
     list_display = (
