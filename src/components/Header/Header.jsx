@@ -7,7 +7,7 @@ const Header = () => {
         <div className={s.header}>
             <div>
                 Find any group or song You seek with
-                <span><NavLink to={'/'}> Lyricist.com</NavLink>!</span> 
+                <span> <NavLink className={s.header_title} to={'/'}>Lyricist.com</NavLink>!</span> 
             </div>
         </div>
     )
