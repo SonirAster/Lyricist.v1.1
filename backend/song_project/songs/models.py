@@ -53,14 +53,12 @@ class Album(models.Model):
 class Song(models.Model):
     title = models.CharField(max_length=100)
     text = models.TextField()
-    year = models.CharField(max_length=100)
     time_create = models.DateTimeField(auto_now_add=True)
     time_update = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=True)
     album = models.ForeignKey(Album, on_delete=models.PROTECT, null=True)
     group = models.ForeignKey(Group, on_delete=models.PROTECT, null=True)
     character = models.ForeignKey(Character, on_delete=models.PROTECT, null=True)
-    language = models.ManyToManyField(Language,)
     slug = models.SlugField(unique=True)
 
 

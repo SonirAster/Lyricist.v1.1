@@ -61,17 +61,18 @@ class AlbumAdmin(admin.ModelAdmin):
 
     get_image.short_description = "Image"
 
+
 @admin.register(Song)
 class SongAdmin(admin.ModelAdmin):
     list_display = (
         'id', 'title',
-        'year', 'group', 'album',
+        'group', 'album',
         'time_create', 'time_update', 'is_published',
 
     )
+    list_display_links = ('title',)
     readonly_fields = ('time_create', 'time_update',)
-    search_fields = ('title', 'year', 'group__name', 'album__title')
-    list_filter = ('year', )
+    search_fields = ('title', 'group__name', 'album__title',)
     list_editable = ('is_published',)
     prepopulated_fields = {"slug": ("title",)}
     fieldsets = (
@@ -82,11 +83,10 @@ class SongAdmin(admin.ModelAdmin):
             'fields': (('group', 'album'),)
         }),
         (None, {
-            'fields': (('year', 'is_published',),)
+            'fields': (( 'is_published', 'character',),)
         }),
         (None, {
             'fields': (('time_create', 'time_update'),)
         }),
     )
-
 
