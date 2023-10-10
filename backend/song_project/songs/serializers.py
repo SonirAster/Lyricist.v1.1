@@ -3,6 +3,24 @@ from rest_framework import serializers
 from .models import *
 
 
+class LanguageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Language
+        fields = '__all__'
+
+
+class CharacterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Character
+        fields = '__all__'
+
+
+class GenreSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Genre
+        fields = '__all__'
+
+
 class GroupSerializer(serializers.ModelSerializer):
     language = serializers.SlugRelatedField(slug_field='lang', read_only=True, many=True)
     genre = serializers.SlugRelatedField(slug_field='genre', read_only=True, many=True)
@@ -10,12 +28,7 @@ class GroupSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Group
-        fields = (
-            'name', 'language', 'year',
-            'genre', 'image', 'slug',
-            'time_create', 'time_update',
-            'character'
-        )
+        fields = '__all__'
 
 
 class SongSerializer(serializers.ModelSerializer):
@@ -25,14 +38,6 @@ class SongSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Song
-        fields = (
-            'title', 'album',
-            'group', 'time_create', 'time_update',
-            'slug', 'character')
-
-
-class GenreSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Genre
         fields = '__all__'
+
+

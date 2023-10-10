@@ -17,7 +17,7 @@ const PageContent = () => {
             setData(res.data);
         })
     }, []);
-    
+
     return (
         <div className={s.page__wrapper}>
             <SearchPanel />

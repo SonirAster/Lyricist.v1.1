@@ -14,6 +14,8 @@ router_main.register(r'', MainPageViewSet, basename='')
 
 urlpatterns = [
     path('', include(router_group.urls)),
-    path('', include(router_main.urls)),
-
+    path('recently-added/', include(router_main.urls)),
+    path('character/', CharacterView.as_view()),
+    path('language/', LanguageView.as_view()),
+    path('genre/', GenreView.as_view()),
 ]
