@@ -6,11 +6,17 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets, mixins, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.pagination import PageNumberPagination
+from rest_framework.views import APIView
 from rest_framework.viewsets import GenericViewSet
+from drf_multiple_model.views import ObjectMultipleModelAPIView
 
 from .models import *
 from .serializers import *
 from .service import GroupFilter
+
+class GenreView(APIView):
+    queryset = Genre.objects.all()
+    serializer_class = GenreSerializer
 
 
 class GroupViewSetPagination(PageNumberPagination):
@@ -21,13 +27,19 @@ class GroupViewSetPagination(PageNumberPagination):
 
 class GroupViewSet(GenericViewSet,
                    mixins.ListModelMixin,
-                   mixins.RetrieveModelMixin,):
+                   mixins.RetrieveModelMixin,
+):
     filter_backends = (DjangoFilterBackend, filters.SearchFilter)
     filterset_class = GroupFilter
     search_fields = ('name',)
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     pagination_class = GroupViewSetPagination
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['genre'] = GenreView
+        return context
 
 
 class MainPageViewSet(GenericViewSet,

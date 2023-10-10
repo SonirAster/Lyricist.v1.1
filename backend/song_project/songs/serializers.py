@@ -29,3 +29,10 @@ class SongSerializer(serializers.ModelSerializer):
             'title', 'album',
             'group', 'time_create', 'time_update',
             'slug', 'character')
+
+
+class GenreSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Genre
+        fields = '__all__'
