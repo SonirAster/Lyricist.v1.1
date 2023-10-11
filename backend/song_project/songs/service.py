@@ -1,6 +1,6 @@
 from django_filters import rest_framework as filters
 
-from songs.models import Group
+from .models import Group
 
 
 class CharFilterInFilter(filters.BaseInFilter, filters.CharFilter):

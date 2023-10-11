@@ -20,13 +20,17 @@ class Genre(admin.ModelAdmin):
     list_display = ('genre',)
 
 
+@admin.register(Year)
+class Year(admin.ModelAdmin):
+    list_display = ('year',)
+
+
 @admin.register(Group)
 class GroupAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'year', 'get_image', 'time_create', 'time_update', )
     list_display_links = ('name', 'id',)
     readonly_fields = ('time_create', 'time_update', 'get_image',)
     search_fields = ('name', 'year', 'language__lang',)
-    list_filter = ('year',)
     prepopulated_fields = {"slug": ("name",)}
     fieldsets = (
         (None, {
@@ -51,7 +55,7 @@ class GroupAdmin(admin.ModelAdmin):
 
 @admin.register(Album)
 class AlbumAdmin(admin.ModelAdmin):
-    list_display = ('title', 'year', 'get_image', 'group',)
+    list_display = ('title',  'get_image', 'group',)
     list_display_links = ('title', 'group')
     readonly_fields = ('get_image',)
     search_fields = ('title', 'year',)
@@ -77,7 +81,7 @@ class SongAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
     fieldsets = (
         (None, {
-            'fields': (('title', 'slug'),)
+            'fields': (('title', 'slug', 'text'),)
         }),
         (None, {
             'fields': (('group', 'album'),)

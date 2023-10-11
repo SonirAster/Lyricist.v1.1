@@ -24,15 +24,22 @@ class Genre(models.Model):
         return self.genre
 
 
+class Year(models.Model):
+    year = models.SmallIntegerField(unique=True)
+
+    def __str__(self):
+        return f'{self.year}'
+
+
 class Group(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
     genre = models.ManyToManyField(Genre)
     image = models.ImageField(upload_to='groups/')
-    year = models.SmallIntegerField(default=None)
     time_create = models.DateTimeField(auto_now_add=True)
     time_update = models.DateTimeField(auto_now=True)
     slug = models.SlugField(unique=True)
+    year = models.ForeignKey(Year, on_delete=models.PROTECT, null=True)
     language = models.ManyToManyField(Language,)
     character = models.ForeignKey(Character, on_delete=models.PROTECT, null=True)
 
@@ -42,7 +49,7 @@ class Group(models.Model):
 
 class Album(models.Model):
     title = models.CharField(max_length=100)
-    year = models.SmallIntegerField()
+    year = models.ForeignKey(Year, on_delete=models.PROTECT, null=True)
     image = models.ImageField(upload_to='albums/')
     group = models.ForeignKey(Group, on_delete=models.PROTECT, null=True)
 
@@ -61,4 +68,5 @@ class Song(models.Model):
     character = models.ForeignKey(Character, on_delete=models.PROTECT, null=True)
     slug = models.SlugField(unique=True)
 
-
+    def __str__(self):
+        return self.title
