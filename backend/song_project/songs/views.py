@@ -29,6 +29,11 @@ class GenreView(ListAPIView):
     serializer_class = GenreSerializer
 
 
+class YearView(ListAPIView):
+    queryset = Year.objects.all()
+    serializer_class = YearSerializer
+
+
 class GroupViewSetPagination(PageNumberPagination):
     page_size = 20
     page_size_query_param = 'page_size'

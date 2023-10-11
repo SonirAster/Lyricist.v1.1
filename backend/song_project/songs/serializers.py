@@ -21,10 +21,17 @@ class GenreSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class YearSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Year
+        fields = '__all__'
+
+
 class GroupSerializer(serializers.ModelSerializer):
     language = serializers.SlugRelatedField(slug_field='lang', read_only=True, many=True)
     genre = serializers.SlugRelatedField(slug_field='genre', read_only=True, many=True)
     character = serializers.SlugRelatedField(slug_field='char', read_only=True, )
+    year = serializers.SlugRelatedField(slug_field='year', read_only=True)
 
     class Meta:
         model = Group

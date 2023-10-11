@@ -18,4 +18,5 @@ urlpatterns = [
     path('character/', CharacterView.as_view()),
     path('language/', LanguageView.as_view()),
     path('genre/', GenreView.as_view()),
+    path('year/', YearView.as_view()),
 ]
